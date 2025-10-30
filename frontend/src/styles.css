@@ -1,0 +1,244 @@
+:root {
+  --bg: #0b1220;
+  --card: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #22d3ee;
+  --border: #1f2937;
+  --like: #16a34a;
+  --pass: #dc2626;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #0b1220, #0f172a);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+
+/* Layout */
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+/* Navbar / Topbar */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(17, 24, 39, 0.7);
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.nav {
+  display: flex;
+  gap: 14px;
+}
+
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav a.active {
+  color: var(--accent);
+}
+
+/* Main content */
+.main {
+  padding: 24px;
+  display: grid;
+  place-items: center;
+}
+
+/* Footer */
+.footer {
+  padding: 12px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+/* Cards */
+.card {
+  width: 340px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+/* Inputs & Buttons */
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #0b1220;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.row {
+  display: grid;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #0b1220;
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  filter: brightness(1.1);
+}
+
+.btn.primary {
+  background: #052d29;
+  border-color: #065f46;
+}
+
+.btn.danger {
+  background: #2b0b0b;
+  border-color: #7f1d1d;
+}
+
+/* Tinder-style Deck */
+.deck {
+  position: relative;
+  width: 320px;
+  height: 480px;
+  overflow: hidden;
+}
+
+.card-profile {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.3s ease-out;
+}
+
+.card-profile img {
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.card-profile h3 {
+  margin: 12px;
+  font-size: 1.2rem;
+}
+
+.card-profile p {
+  margin: 0 12px 16px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Swipe animations */
+.card-profile.swipe-right {
+  transform: rotate(20deg) translateX(400px);
+  opacity: 0;
+}
+
+.card-profile.swipe-left {
+  transform: rotate(-20deg) translateX(-400px);
+  opacity: 0;
+}
+
+/* Match feedback */
+.like-label,
+.pass-label {
+  position: absolute;
+  top: 20px;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 4px 16px;
+  border-radius: 8px;
+  opacity: 0.85;
+  text-transform: uppercase;
+}
+
+.like-label {
+  left: 20px;
+  color: var(--like);
+  border: 2px solid var(--like);
+}
+
+.pass-label {
+  right: 20px;
+  color: var(--pass);
+  border: 2px solid var(--pass);
+}
+
+/* Tables (for admin / wallet / skills pages) */
+.table {
+  width: 720px;
+  max-width: 100%;
+  border-collapse: collapse;
+  background: #0b1220;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.table th {
+  background: #0d1b2a;
+}
+
+.small {
+  font-size: 12px;
+  color: var(--muted);
+}
+
